@@ -131,6 +131,7 @@ class User(BaseModel, AbstractBaseUser):
             msg = MessageBuilder(
                 subject='%sConfirm Email' % (options.get('mail.subject-prefix'),),
                 template='sentry/emails/confirm_email.txt',
+                type='user.confirm_email',
                 context=context,
             )
             msg.send_async([email.email])
